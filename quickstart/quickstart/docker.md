@@ -24,6 +24,17 @@ redirect_from:
 
 ## 使用 Gradle 打包应用
 
+推荐 Gradle 版本：7.1。
+
+可以通过打开 gradle/wrapper/gradle-wrapper.properties 文件配置：
+```properties
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.1-all.zip
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+```
+
 在本教程中，我们会使用 Gradle [shadow 插件](https://github.com/johnrengelman/shadow)。
 它将所有输出的类、资源以及所有必需的依赖项打包到一个 JAR 文件中，
 并追加一个清单文件来告诉 Java 哪个是包含 main 方法的入口点主类。
@@ -39,7 +50,7 @@ buildscript {
     }
     dependencies {
         ...
-        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
     }
 }
 ```
@@ -92,7 +103,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
     }
 }
 
